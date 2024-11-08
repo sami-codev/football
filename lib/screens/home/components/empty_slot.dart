@@ -20,7 +20,7 @@ class EmptyPosition extends StatelessWidget {
           alignment: Alignment.center,
           child: const Text(
             '+',
-            style: TextStyle(color: Colors.grey, fontSize: 24),
+            style: TextStyle(color: Colors.white, fontSize: 24),
           ),
         );
       },

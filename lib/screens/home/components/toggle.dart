@@ -20,6 +20,18 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
 
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context,constraints) {
+        if (constraints.maxWidth > constraints.maxHeight) {
+           return landscape();
+        } else {
+          return potrait();
+        }
+      }
+    );
+  }
+
+  potrait(){
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
       padding: const EdgeInsets.all(6.0),
@@ -34,20 +46,22 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
           Expanded(
             child: GestureDetector(
               onTap: () {
-                 toggleView(0);
+                toggleView(0);
               },
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 20.0),
                 decoration: BoxDecoration(
-                  color: type==0 ? Colors.white.withOpacity(.2)  :Colors.transparent,
+                  color: type == 0 ? Colors.white.withOpacity(.2) : Colors
+                      .transparent,
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 child: const Center(
                   child: Text(
                     'Pitch View',
                     style: TextStyle(
-                      color:Colors.white ,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -62,19 +76,75 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
               },
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 20.0),
                 decoration: BoxDecoration(
-                  color: type==1 ?Colors.white.withOpacity(.2) :Colors.transparent,
+                  color: type == 1 ? Colors.white.withOpacity(.2) : Colors
+                      .transparent,
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 child: const Center(
                   child: Text(
                     'List View',
                     style: TextStyle(
-                      color: Colors.white ,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  landscape(){
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 40,horizontal: 20),
+      padding: const EdgeInsets.all(6.0),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(.15),
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                toggleView(0);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 20.0),
+                decoration: BoxDecoration(
+                  color: type == 0 ? Colors.white.withOpacity(.2) : Colors
+                      .transparent,
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: const Center(
+                  child: Icon(Icons.sports_football,color: Colors.white,),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                toggleView(1);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 20.0),
+                decoration: BoxDecoration(
+                  color: type == 1 ? Colors.white.withOpacity(.2) : Colors
+                      .transparent,
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: const Center(
+                  child: Icon(Icons.list,color: Colors.white,),
                 ),
               ),
             ),
