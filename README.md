@@ -26,8 +26,9 @@ These instructions will help you set up and run the project on your local machin
    git clone https://github.com/your-username/football.git
    cd football
    flutter pub get
-   flutter run
+   flutter run 
+   ```
 
-### Limitations and Future Improvements
+**Limitations and Improvements**
 Due to time constraints, I wasn't able to add more interactions or make the app more visually appealing.
 
